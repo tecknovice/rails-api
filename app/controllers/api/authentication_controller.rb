@@ -27,7 +27,13 @@ module Api
           token: token
         })
       else
-        raise ExceptionHandler::AuthenticationError, 'Invalid credentials'
+        # Handle login failure directly with proper status code
+        Rails.logger.info("Login failed for email: #{params[:email]}")
+        render json: { 
+          error: 'Invalid credentials', 
+          code: 'unauthorized',
+          status: 401 
+        }, status: :unauthorized
       end
     end
     

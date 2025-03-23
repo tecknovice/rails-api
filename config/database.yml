@@ -14,7 +14,7 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: password
   socket: /tmp/mysql.sock
 
 development:
@@ -27,6 +27,8 @@ development:
 test:
   <<: *default
   database: rails_api_test
+  # Use the MySQL password you've set
+  # You could also use ENV variables for security: password: <%= ENV['DATABASE_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

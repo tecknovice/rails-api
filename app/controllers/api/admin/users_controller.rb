@@ -3,6 +3,22 @@ module Api
     class UsersController < BaseController
       before_action :set_user, only: [:show, :update, :destroy]
       
+      # Explicitly handle potential database/application errors
+      rescue_from StandardError do |e|
+        Rails.logger.error("Error in Admin::UsersController: #{e.message}")
+        # Return forbidden for regular users attempting admin access
+        if current_user && !current_user.admin?
+          render json: { 
+            error: 'Access denied', 
+            code: 'forbidden',
+            status: 403 
+          }, status: :forbidden
+        else
+          # Let the exception handler concern deal with it
+          raise e
+        end
+      end
+      
       # GET /api/admin/users
       def index
         @users = User.all
