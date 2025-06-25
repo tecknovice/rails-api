@@ -73,7 +73,7 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
     ast (2.4.3)
-    base64 (0.2.0)
+    base64 (0.3.0)
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.0)
@@ -109,7 +109,7 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.10.2)
-    jwt (2.10.1)
+    jwt (3.1.1)
       base64
     kamal (2.5.3)
       activesupport (>= 7.0)
@@ -184,8 +184,6 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.12)
-    rack-attack (6.7.0)
-      rack (>= 1.0, < 4)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-session (2.1.0)
@@ -325,7 +323,6 @@ DEPENDENCIES
   kamal
   mysql2 (~> 0.5)
   puma (>= 5.0)
-  rack-attack
   rack-cors
   rails (~> 8.0.2)
   rubocop-rails-omakase
